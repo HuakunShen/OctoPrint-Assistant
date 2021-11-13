@@ -32,18 +32,25 @@ The simpliest method is to deploy with `docker-compose`.
 docker-compose up -d
 ```
 
-# Dockfile
+# Docker Image
 
+## Build with Dockerfile
 ```bash
 docker build . -t huakunshen/octoprint-assistant
+```
+## Build Multi-Platform Docker Image
+
+```bash
+docker buildx build \
+    --platform linux/amd64,linux/arm64 \
+    --push \
+    -t huakunshen/octoprint-assistant:latest .
+```
+## Run Docker Container
+```bash
 docker run --rm -it -p 8080:8000 \
     -e OCTOPRINT_X_API_KEY=<octoprint-x-api-key> \
     -e OCTOPRINT_ADDRESS=<server-address> \
     -e API_KEY=<api-key> \
     huakunshen/octoprint-assistant
-
-# dockerx
-docker buildx build \
-    --platform linux/amd64 \
-    -t huakunshen/octoprint-assistant .
 ```
