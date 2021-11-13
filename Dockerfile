@@ -2,7 +2,7 @@ FROM python:3.10.0-buster
 
 COPY . /OctoPrint-Assistant/
 WORKDIR /OctoPrint-Assistant/
-
+ENV DEBUG=false
 ENV OCTOPRINT_PORT=5000
 ENV OCTOPRINT_PROTOCOL=http
 
@@ -15,5 +15,6 @@ EXPOSE 8000
 
 RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN python manage.py migrate
 
 CMD python manage.py runserver 0.0.0.0:8000
