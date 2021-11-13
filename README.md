@@ -1,6 +1,6 @@
 # OctoPrint Assistant
 
-A rest API server that fetch data from and issue command to octoprint server and reply with human understandable language.
+A rest API server that fetch data from and issue command to octoprint server, and reply with human understandable language.
 
 Designed be used with together with Siri or Google Assistant.
 
