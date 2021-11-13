@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  local-service-api:
+    image: python:3.10.0-buster
+    restart: unless-stopped
+    volumes:
+      - .:/root/server
+    entrypoint: sh /root/server/entrypoint.sh
+    ports:
+      - "8080:8080"
