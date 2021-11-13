@@ -7,4 +7,4 @@ services:
       - .:/root/server
     entrypoint: sh /root/server/entrypoint.sh
     ports:
-      - "8080:8080"
+      - "8080:8000"

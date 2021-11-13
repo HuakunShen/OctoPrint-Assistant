@@ -5,7 +5,6 @@ class APIKeyMiddleware(object):
         self.get_response = get_response
 
     def __call__(self, request):
-        print(request.headers)
         if 'x-api-key' not in request.headers:
             print("No API Key")
             return HttpResponse("API Key required", status=401)

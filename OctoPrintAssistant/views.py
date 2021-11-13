@@ -13,7 +13,10 @@ from .models import DurationPrecision
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the index.")
+    return HttpResponse("""
+    Hi, you are calling the API of OctoPrint Assistant.
+    Check https://github.com/HuakunShen/OctoPrint-Assitant for the full API documentation.
+    """)
 
 def octoprint_state(request):
     url = build_url(get_octoprint_url_prefix(), '/api/connection')
