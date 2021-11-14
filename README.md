@@ -5,9 +5,10 @@ A rest API server that fetch data from and issue command to octoprint server, an
 Designed be used with together with Siri or Google Assistant.
 
 You can use your voice to get the status and printing time of your 3D printer, and control it by issuing commands like,
+
 1. start job
 2. toggle job
-3. cancel job 
+3. cancel job
 
 ## Usage
 
@@ -21,6 +22,8 @@ You can use your voice to get the status and printing time of your 3D printer, a
 - `/octoprint-assistant/job/cancel/`
 - `/octoprint-assistant/job/toggle/`
 - `/octoprint-assistant/job/start/`
+- `/octoprint-assistant/connect/`
+- `/octoprint-assistant/disconnect/`
 
 The `x-api-key` must be included in the header.
 
@@ -35,18 +38,22 @@ docker-compose up -d
 # Docker Image
 
 ## Build with Dockerfile
+
 ```bash
 docker build . -t huakunshen/octoprint-assistant
 ```
+
 ## Build Multi-Platform Docker Image
 
 ```bash
 docker buildx build \
-    --platform linux/amd64,linux/arm64 \
+    --platform linux/amd64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6 \
     --push \
     -t huakunshen/octoprint-assistant:latest .
 ```
+
 ## Run Docker Container
+
 ```bash
 docker run --rm -it -p 8080:8000 \
     -e OCTOPRINT_X_API_KEY=<octoprint-x-api-key> \

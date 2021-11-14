@@ -1,15 +1,20 @@
 from django.shortcuts import render
-
+import json
 # Create your views here.
 from django.http import HttpResponse, JsonResponse
 
-from .constants import OCTOPRINT_X_API_KEY, MASTER_NAME
+from .constants import OCTOPRINT_X_API_KEY, MASTER_NAME, GENERAL_OCTOPRINT_HEADER
 
 import requests
 import io
 from .utils import get_octoprint_url_prefix, build_url, time_struct_to_text, convert_seconds
 from .models import DurationPrecision
 
+# import the logging library
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -26,6 +31,28 @@ def octoprint_state(request):
     res_json = res.json()
     state = res_json['current']['state']
     return HttpResponse(state)
+
+def octoprint_connect(request):
+    payload = json.dumps({"command": "connect"})
+    url = build_url(get_octoprint_url_prefix(), '/api/connection')
+    res = requests.post(url, headers=GENERAL_OCTOPRINT_HEADER, data=payload)
+    if res.status_code == 204:
+        return HttpResponse(f"Connected", content_type="text/plain")
+    else:
+        logger.error(res.content)
+        return HttpResponse(f"Error, not connected", status=res.status_code)
+
+def octoprint_disconnect(request):
+    print("disconnect")
+    payload = json.dumps({"command": "disconnect"})
+    url = build_url(get_octoprint_url_prefix(), '/api/connection')
+    res = requests.post(url, headers=GENERAL_OCTOPRINT_HEADER, data=payload)
+    if res.status_code == 204:
+        return HttpResponse(f"Disconnected", content_type="text/plain")
+    else:
+        logger.error(res.content)
+        return HttpResponse(f"Error, not disconnected", status=res.status_code)
+
 
 def octoprint_job_status(request):
     url = build_url(get_octoprint_url_prefix(), '/api/job')

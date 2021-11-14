@@ -17,3 +17,10 @@ if str(os.getenv("DEBUG")).lower() == "true":
     print(f"OCTOPRINT_PROTOCOL: {OCTOPRINT_PROTOCOL}")
     print(f"OCTOPRINT_X_API_KEY: {OCTOPRINT_X_API_KEY}")
     print(f"MASTER_NAME: {MASTER_NAME}")
+
+
+GENERAL_OCTOPRINT_HEADER = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "x-api-key": OCTOPRINT_X_API_KEY
+}
