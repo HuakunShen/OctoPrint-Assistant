@@ -5,7 +5,7 @@ if [[ $n_lines -eq 2 ]]; then
     docker stop octoprint-assistant
 fi
 
-lines=$(docker ps --filter name=octoprint-assistant)
+lines=$(docker ps -a --filter name=octoprint-assistant)
 n_lines=$(echo $lines | wc -l)
 if [[ $n_lines -eq 2 ]]; then
     docker rm octoprint-assistant
