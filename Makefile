@@ -1,2 +1,7 @@
-upload:
-	cd ../../ && ls && scp -r Jarvis pi@pi1.local:~/Documents;
+buildx:
+	docker buildx build \
+		--platform linux/amd64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6 \
+		--push \
+		-t huakunshen/octoprint-assistant:latest .
+build:
+	docker build -t huakunshen/octoprint-assistant:latest .

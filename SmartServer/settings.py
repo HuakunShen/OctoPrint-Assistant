@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-y%s9o697%t$g$_h7y^s8#4zw#2w1&)mw0wcp$*d&$h717qx3aq
 DEBUG = os.getenv("DEBUG", False)
 
 ALLOWED_HOSTS = ["*"]       # change this to be more strict
-
+APPEND_SLASH = True         # append slack to end of url if didn't match any pattern
 
 # Application definition
 

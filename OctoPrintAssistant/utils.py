@@ -39,7 +39,7 @@ def time_struct_to_text(time_struct: DurationStruct, precision: DurationPrecisio
     if time_struct.days != 0:
         results.append(f"{time_struct.days} days")
     if time_struct.hours != 0 and precision >= DurationPrecision.hours:
-        results.append(f"{time_struct.hours} hours")
+        results.append(f"{time_struct.hours} hour{'s' if time_struct.hours > 1 else ''}")
     if time_struct.minutes != 0 and precision >= DurationPrecision.minutes:
         results.append(f"{time_struct.minutes} minutes")
     if time_struct.seconds != 0 and precision >= DurationPrecision.seconds:
