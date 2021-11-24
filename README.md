@@ -17,13 +17,16 @@ You can use your voice to get the status and printing time of your 3D printer, a
 
 ## API
 
-- `/octoprint-assistant/printer/state/`
-- `/octoprint-assistant/job/status/`
-- `/octoprint-assistant/job/cancel/`
-- `/octoprint-assistant/job/toggle/`
-- `/octoprint-assistant/job/start/`
-- `/octoprint-assistant/connect/`
-- `/octoprint-assistant/disconnect/`
+- `/octoprint-assistant/printer/state`
+- `/octoprint-assistant/job/status`
+- `/octoprint-assistant/job/cancel`
+- `/octoprint-assistant/job/toggle`
+- `/octoprint-assistant/job/start`
+- `/octoprint-assistant/connect`
+- `/octoprint-assistant/disconnect`
+- `/octoprint-assistant/files/all`
+- `/octoprint-assistant/files/select`
+- `/octoprint-assistant/files/shift`
 
 The `x-api-key` must be included in the header.
 
@@ -59,5 +62,12 @@ docker run --rm -it -p 8080:8000 \
     -e OCTOPRINT_X_API_KEY=<octoprint-x-api-key> \
     -e OCTOPRINT_ADDRESS=<server-address> \
     -e API_KEY=<api-key> \
+    huakunshen/octoprint-assistant
+```
+
+```bash
+# if you fill in a .env file
+docker run --rm -it -p 8080:8000 \
+    --env-file .env \
     huakunshen/octoprint-assistant
 ```
