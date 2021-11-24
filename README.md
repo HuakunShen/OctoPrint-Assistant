@@ -67,7 +67,8 @@ docker run --rm -it -p 8080:8000 \
 
 ```bash
 # if you fill in a .env file
-docker run --rm -it -p 8080:8000 \
+docker run --rm -d -p 7000:8000 \
+    --name octoprint-assistant \
     --env-file .env \
     huakunshen/octoprint-assistant
 ```
