@@ -97,7 +97,7 @@ def retrieve_all_files_paths():
 
 def send_command(command: str, action: str = None):
     url = build_url(get_octoprint_url_prefix(), '/api/job')
-    json_data = {"command": command, "action": action}
+    json_data = {"command": command + "ed", "action": action}
     if action is not None:
         json_data.update({"action": action})
     return requests.post(url, headers=GENERAL_OCTOPRINT_HEADER, json=json_data)
