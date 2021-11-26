@@ -66,7 +66,7 @@ def send_connection_request(payload: Dict):
     url = build_url(get_octoprint_url_prefix(), '/api/connection')
     res = requests.post(url, headers=GENERAL_OCTOPRINT_HEADER, data=json.dumps(payload))
     if res.status_code == 204:
-        return HttpResponse(f"Disconnected", content_type="text/plain")
+        return HttpResponse(payload['command'], content_type="text/plain")
     else:
         logger.error(res.content)
         return HttpResponse(f"Error, not disconnected", status=res.status_code)
