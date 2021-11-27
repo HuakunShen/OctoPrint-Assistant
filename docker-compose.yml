@@ -1,9 +1,10 @@
 version: '3.8'
 services:
   reverse-proxy:
-    image: huakunshen/nginx-certbot
+    image: huakunshen/nginx-certbot:latest
     ports:
-      - 6001:80                 # disable this after debugging and ssl is installed
+      # TODO: optional: change the following port mapping as needed
+      - 6001:80                 # optional: disable this after debugging and ssl is installed
       - 6000:443
     restart: unless-stopped
     volumes:
