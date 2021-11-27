@@ -1,0 +1,14 @@
+server {
+    server_name _;
+
+    listen 80;
+    error_log /var/log/nginx/error.log;
+
+    location /octoprint-assistant/ {
+    	proxy_pass http://octoprint-assistant:8000;
+    }
+
+    location / {
+		return 200;
+    }
+}
