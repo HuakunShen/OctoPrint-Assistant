@@ -72,3 +72,9 @@ docker run --rm -d -p 7000:8000 \
     --env-file .env \
     huakunshen/octoprint-assistant
 ```
+
+# SSL Certificate
+
+```bash
+certbot certonly -a manual -d domain.com --preferred-challenges dns
+```

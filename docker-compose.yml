@@ -1,10 +1,17 @@
-version: "3.9"
+version: '3.8'
 services:
-  local-service-api:
-    image: python:3.10.0-buster
+  reverse-proxy:
+    image: huakunshen/nginx-certbot:latest
+    ports:
+      # TODO: optional: change the following port mapping as needed
+      - 6001:80                 # optional: disable this after debugging and ssl is installed
+      - 6000:443
     restart: unless-stopped
     volumes:
-      - .:/root/server
-    entrypoint: sh /root/server/entrypoint.sh
-    ports:
-      - "8080:8000"
+      - ./config:/etc/nginx/sites-available
+      - ./letsencrypt:/etc/letsencrypt
+  octoprint-assistant:
+    image: huakunshen/octoprint-assistant:latest
+    restart: unless-stopped
+    env_file:
+      - .env

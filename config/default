@@ -1,0 +1,38 @@
+# this server running on port 80 is only for debugging or local use. Do not expose it to the internet.
+server {
+    server_name _;
+
+    listen 80;
+    listen [::]:80;
+    error_log /var/log/nginx/error.log;
+
+    location /octoprint-assistant/ {
+    	proxy_pass http://octoprint-assistant:8000;
+    }
+
+    location / {
+		return 404;
+    }
+}
+
+server {
+    # TODO: change domain.com to your domain
+    server_name domain.com;
+
+    listen 443 ssl;
+    listen [::]:443 ssl ipv6only=on;
+
+    error_log /var/log/nginx/error.log;
+
+    # TODO: change domain.com to your domain
+    ssl_certificate /etc/letsencrypt/live/domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
+
+    location /octoprint-assistant/ {
+    	proxy_pass http://octoprint-assistant:8000;
+    }
+
+    location / {
+      return 404;
+    }
+}

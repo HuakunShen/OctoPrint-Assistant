@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,12 +28,12 @@ SECRET_KEY = 'django-insecure-y%s9o697%t$g$_h7y^s8#4zw#2w1&)mw0wcp$*d&$h717qx3aq
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv("DEBUG", "false").lower() == 'true' else False
+print(f"Debug Mode: {DEBUG}")
 
 ALLOWED_HOSTS = ["*"]       # change this to be more strict
 APPEND_SLASH = True         # append slack to end of url if didn't match any pattern
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
