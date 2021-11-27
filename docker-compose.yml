@@ -3,8 +3,8 @@ services:
   reverse-proxy:
     image: huakunshen/nginx-certbot
     ports:
-      - 7001:80                 # disable this after debugging and ssl is installed
-      - 7000:443
+      - 6001:80                 # disable this after debugging and ssl is installed
+      - 6000:443
     restart: unless-stopped
     volumes:
       - ./config:/etc/nginx/sites-available
