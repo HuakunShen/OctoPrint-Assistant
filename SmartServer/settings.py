@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y%s9o697%t$g$_h7y^s8#4zw#2w1&)mw0wcp$*d&$h717qx3aq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", False)
+DEBUG = True if os.getenv("DEBUG", "false").lower() == 'true' else False
 
 ALLOWED_HOSTS = ["*"]       # change this to be more strict
 APPEND_SLASH = True         # append slack to end of url if didn't match any pattern
