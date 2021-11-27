@@ -3,17 +3,14 @@ services:
   reverse-proxy:
     image: huakunshen/nginx-certbot
     ports:
-      - 7001:80
+      - 7001:80                 # disable this after debugging and ssl is installed
       - 7000:443
     restart: unless-stopped
     volumes:
       - ./config:/etc/nginx/sites-available
       - ./letsencrypt:/etc/letsencrypt
   octoprint-assistant:
-    # image: huakunshen/octoprint-assistant:latest
-    build: .
+    image: huakunshen/octoprint-assistant:latest
     restart: unless-stopped
-    ports:
-      - 7002:8000
     env_file:
       - .env
