@@ -78,3 +78,7 @@ docker run --rm -d -p 7000:8000 \
 ```bash
 certbot certonly -a manual -d domain.com --preferred-challenges dns
 ```
+
+# API Documentation
+
+[Postman API Documentation](https://documenter.getpostman.com/view/6372229/UVJbJyBi)

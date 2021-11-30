@@ -1,8 +1,9 @@
+import enum
 import re
 # Create your views here.
 from django.http import HttpResponse
 
-from .constants import MASTER_NAME, GENERAL_OCTOPRINT_HEADER
+from .constants import MASTER_NAME, GENERAL_OCTOPRINT_HEADER, COMMANDS_AVAILABLE
 from django.views.decorators.http import require_http_methods
 import requests
 import io
@@ -23,6 +24,13 @@ def index(request):
     Hi, you are calling the API of OctoPrint Assistant.
     Check https://github.com/HuakunShen/OctoPrint-Assitant for the full API documentation.
     """)
+
+
+@require_http_methods(['GET'])
+def commands_available(request):
+    res = "Commands: \n"
+    res += ". ".join([f"{i}. {command}" for i, command in enumerate(COMMANDS_AVAILABLE)])
+    return res
 
 
 @require_http_methods(['GET'])

@@ -47,6 +47,11 @@ def time_struct_to_text(time_struct: DurationStruct, precision: DurationPrecisio
     return ", ".join(results)
 
 
+def get_connection_status() -> requests.models.Response:
+    url = build_url(get_octoprint_url_prefix(), '/api/connection')
+    return requests.get(url, headers=GENERAL_OCTOPRINT_HEADER)
+
+
 def get_job_status_response() -> requests.models.Response:
     url = build_url(get_octoprint_url_prefix(), '/api/job')
     return requests.get(url, headers=GENERAL_OCTOPRINT_HEADER)

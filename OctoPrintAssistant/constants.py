@@ -24,3 +24,14 @@ GENERAL_OCTOPRINT_HEADER = {
     "Content-Type": "application/json",
     "x-api-key": OCTOPRINT_X_API_KEY
 }
+
+COMMANDS_AVAILABLE = [
+    "Status",
+    "Start",
+    "Cancel",
+    "Toggle",
+    "Connect",
+    "Disconnect",
+    "Files",
+    "Shift"
+]
