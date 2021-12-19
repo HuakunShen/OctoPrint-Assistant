@@ -120,3 +120,7 @@ If you are using my `docker-compose.yml` setup, certbot is preinstalled in the n
 ```
 
 Then enter the certbox command.
+
+# Apple Shortcut
+
+To control your 3D printer with voice, refer to this [shortcut demo](./Octoprint.shortcut).
