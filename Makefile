@@ -14,3 +14,10 @@ buildx:
 		-t huakunshen/octoprint-assistant:latest .
 build:
 	docker build -t huakunshen/octoprint-assistant:latest .
+
+reset-and-backup:
+	cp ./config/default ./config/default.bk
+	git reset --hard
+	git pull
+	cp ./config/default.bk ./config/default
+	rm ./config/default.bk
