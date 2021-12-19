@@ -1,5 +1,5 @@
 #!/bin/bash
-bash ./stop.sh
+bash ./scripts/stop.sh
 
 lines=$(docker ps -a --filter name=octoprint-assistant);
 n_lines=$(echo $lines | grep 'octoprint-assistant' | wc -l);

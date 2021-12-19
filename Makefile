@@ -20,4 +20,4 @@ reset-and-backup:
 	git reset --hard
 	git pull
 	cp ./config/default.bk ./config/default
-	rm ./config/default.bk
+	
