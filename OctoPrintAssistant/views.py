@@ -134,6 +134,14 @@ def octoprint_job_start(request):
 
 @require_http_methods(['POST'])
 def octoprint_job_toggle(request):
+    """Toggle current running job
+
+    Args:
+        request ([type]): [description]
+
+    Returns:
+        HttpResponse: text response
+    """
     res = send_command(command="pause", action="toggle")
     response_text = res.text if res.status_code != 204 else f"Yes {MASTER_NAME}, Job Toggled"
     return HttpResponse(response_text, status=200)
