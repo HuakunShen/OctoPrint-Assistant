@@ -1,8 +1,12 @@
 # OctoPrint Assistant
 
-A rest API server designed for vocal control 3d printer with OctoPrint. that fetch data from and issue command to octoprint server, and reply with human understandable language.
+A rest API server designed for voice control 3d printer with OctoPrint that fetch data from and issue command to octoprint server, and reply with human understandable language.
 
 Designed be used with together with Siri or Google Assistant.
+
+## YouTube Video
+
+https://youtu.be/la8NJOQExg4
 
 You can use your voice to get the status and printing time of your 3D printer, and control it by issuing commands like,
 
